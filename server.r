@@ -34,15 +34,15 @@ shinyServer(function(input, output) {
       scale_x_continuous("T-Value", breaks = seq(20,80, 10)) # x-axis
     # colour different areas of the plot
     g <- g +   
-      geom_polygon(data = data.frame(x = c(20,seq(20, 40, 0.5),40), 
-                                     y = c(0,dnorm(seq(20, 40, 0.5), 50, 10), 0))
-                   , aes(x=x, y=y), fill = "yellow", alpha = 0.4) + 
-      geom_polygon(data = data.frame(x = c(40,seq(40, 60, 0.5),60), 
+#       geom_polygon(data = data.frame(x = c(20,seq(20, 40, 0.5),40), 
+#                                      y = c(0,dnorm(seq(20, 40, 0.5), 50, 10), 0))
+#                    , aes(x=x, y=y), fill = "yellow", alpha = 0.4) + 
+       geom_polygon(data = data.frame(x = c(40,seq(40, 60, 0.5),60), 
                                      y = c(0,dnorm(seq(40, 60, 0.5), 50, 10), 0))
-                   , aes(x=x, y=y), fill = "red", alpha = 0.4) +
-      geom_polygon(data = data.frame(x = c(60,seq(60, 80, 0.5),80), 
-                                     y = c(0,dnorm(seq(60, 80, 0.5), 50, 10), 0))
-                   , aes(x=x, y=y), fill = "skyblue", alpha = 0.4)
+                   , aes(x=x, y=y), fill = "blue", alpha = 0.4) # +
+#       geom_polygon(data = data.frame(x = c(60,seq(60, 80, 0.5),80), 
+#                                      y = c(0,dnorm(seq(60, 80, 0.5), 50, 10), 0))
+#                    , aes(x=x, y=y), fill = "skyblue", alpha = 0.4)
     g <- g + geom_point(data = daf, aes(x = x, y = y), size = 5) # test value
     g <- g + geom_errorbarh(data = daf, aes(x = x, y = y, xmin = ci.min,xmax = ci.max), height = 0, size = 1) # confidence intervals
     print(g)
