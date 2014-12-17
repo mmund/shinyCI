@@ -1,10 +1,20 @@
 # shinyCI
 
-A shiny app to experience confidence intervals.
+A shinyApp to experience Confidence Intervals (CI).
 
-This is a tiny shiny App supposed to be used for didactical reasons. The motivation 
-behind this little project is to make visible how the constituents of a 
-Confidence Interval (Reliability and Confidence Level) affect the width and hence
+This tiny shinyApp is supposed to be used for didactical reasons. The motivation 
+behind this little project is to make transparent how the constituents of a 
+Confidence Interval (test value, reliability, and confidence level) affect the width and hence
 the interpretation of the respective CI. 
 
-**BEWARE:** Code is still messy yet...
+
+## Deploying this App
+
+
+
+## ToDo
+ 
+* as yet, shinyCI only works for T-values (hard-coded). It would be great if one could select between
+different scales (IQ, Z, etc.)
+
+
