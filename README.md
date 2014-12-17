@@ -10,7 +10,9 @@ the interpretation of the respective CI.
 
 ## Deploying this App
 
+The current version of this app can be used here: 
 
+http://diffpsy.shinyapps.io/shinyCI
 
 ## ToDo
  
