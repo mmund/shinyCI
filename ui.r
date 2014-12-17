@@ -1,32 +1,43 @@
 library(shiny)
 
 # Define UI
+# fluidPage
 shinyUI(pageWithSidebar(
   
-  # Application title
-  headerPanel("Konfidenzintervalle"),
+  #### Application title ####
+  titlePanel("Konfidenzintervalle"),
   
-  # Sidebar with controls for test value, reliability, and confidence level
+  #### Sidebar with controls for test value, reliability, and confidence level ####
   sidebarPanel(
 
-    numericInput("x", "Testwert auf T-Skala:", 50),
+    numericInput("x"
+                 , helpText("Testwert auf T-Skala", br(),
+                          "(MW = 50, SD = 10):")
+                 # , "Testwert auf T-Skala:"
+                 , 50),
     
     br(), br(),
     
-    sliderInput("reli", "Reliabilität:", min = 0, max = 1, value = 0.9, step = 0.05),
+    sliderInput("reli"
+                , "Reliabilität:"
+                , min = 0
+                , max = 1
+                , value = 0.8
+                , step = 0.05),
     
     br(), br(),
     
-    sliderInput("conflevel", "Sicherheitswahrscheinlichkeit:", min = 0.5, max = 0.99, value = 0.95, step = 0.05)
-      
+    sliderInput("conflevel"
+                , helpText("Sicherheitswahrscheinlichkeit", br(),
+                           "(1 - Irrtumswahrscheinlichkeit):")
+                , min = 0.5
+                , max = 1.00
+                , value = 0.95
+                , step = 0.03)      
     ),
-      
-# Show the plot
-mainPanel(
-    #h3(textOutput("caption")),
-    
-    plotOutput("confPlot") #, height = "600px")
-)
   
-
+  #### Show the Plot ####
+  mainPanel(
+    plotOutput("confPlot") #, height = "600px")
+    )
 ))
