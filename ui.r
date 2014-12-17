@@ -4,20 +4,20 @@ library(shiny)
 shinyUI(pageWithSidebar(
   
   # Application title
-  headerPanel("Confidence Intervals"),
+  headerPanel("Konfidenzintervalle"),
   
   # Sidebar with controls for test value, reliability, and confidence level
   sidebarPanel(
 
-    numericInput("x", "Individual's Test Value (T scale):", 50),
+    numericInput("x", "Testwert auf T-Skala:", 50),
     
     br(), br(),
     
-    sliderInput("reli", "Reliability of the Test:",min = 0, max = 1, value = 0.9, step = 0.05),
+    sliderInput("reli", "Reliabilität:", min = 0, max = 1, value = 0.9, step = 0.05),
     
     br(), br(),
     
-    sliderInput("conflevel", "Confidence Level:", min = 0.5, max = 0.99, value = 0.95, step = 0.05)
+    sliderInput("conflevel", "Sicherheitswahrscheinlichkeit:", min = 0.5, max = 0.99, value = 0.95, step = 0.05)
       
     ),
       
