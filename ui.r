@@ -11,7 +11,7 @@ shinyUI(pageWithSidebar(
   sidebarPanel(
 
     numericInput("x"
-                 , helpText("Testwert auf T-Skala", br(),
+                 , helpText(strong("Testwert auf T-Skala"), br(),
                           "(MW = 50, SD = 10):")
                  # , "Testwert auf T-Skala:"
                  , 50),
@@ -19,7 +19,7 @@ shinyUI(pageWithSidebar(
     br(), br(),
     
     sliderInput("reli"
-                , "Reliabilität:"
+                , strong("Reliabilität:")
                 , min = 0
                 , max = 1
                 , value = 0.8
@@ -28,12 +28,12 @@ shinyUI(pageWithSidebar(
     br(), br(),
     
     sliderInput("conflevel"
-                , helpText("Sicherheitswahrscheinlichkeit", br(),
+                , helpText(strong("Sicherheitswahrscheinlichkeit"), br(),
                            "(1 - Irrtumswahrscheinlichkeit):")
                 , min = 0.5
                 , max = 1.00
                 , value = 0.95
-                , step = 0.03)      
+                , step = 0.01)      
     ),
   
   #### Show the Plot ####
