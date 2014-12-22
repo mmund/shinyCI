@@ -44,8 +44,7 @@ shinyUI(pageWithSidebar(
     
     helpText(strong("Interpretation:", br())),
     textOutput("interpreter")
-    
-    ),
+    ), # end sidebar 
   
   #### Show the Plot ####
   mainPanel(
