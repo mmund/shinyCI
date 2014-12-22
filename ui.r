@@ -38,6 +38,10 @@ shinyUI(pageWithSidebar(
     #### interpretation of current CI
     br(), br(),
     
+    checkboxInput("showInterpreter", label = "Interpretation anzeigen", value = TRUE), 
+    
+    br(),
+    
     helpText(strong("Interpretation:", br())),
     textOutput("interpreter")
     

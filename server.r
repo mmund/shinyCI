@@ -47,13 +47,15 @@ output$interpreter <- renderText({
   daf$crit.z <- abs(qnorm((1-daf$clevel) / 2))
   daf$ci.min <- daf$x - daf$crit.z*daf$se
   daf$ci.max <- daf$x + daf$crit.z*daf$se
-  
+
+  if (input$showInterpreter == TRUE) {
     if (daf$ci.min >= 40 & daf$ci.max <= 60) "durchschnittlich" else
       if(daf$ci.max < 40) "unterdurchschnittlich" else
         if(daf$ci.min > 60) "überdurchschnittlich" else
           if (daf$ci.min < 40 & daf$ci.max >= 40 & daf$ci.max < 60) "unterdurchschnittlich bis durchschnittlich" else
             if (daf$ci.min >= 40 & daf$ci.min <= 60 & daf$ci.max > 60) "durchschnittlich bis überdurchschnittlich" else
               if (daf$ci.min < 40 & daf$ci.max > 60) "unterdurchschnittlich bis überdurchschnittlich"        
-}) # end renderText
+  } else "" # end showInterpreter = T  
+    }) # end renderText
     
 })  # end shinyServer
