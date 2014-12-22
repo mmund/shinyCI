@@ -14,9 +14,4 @@ The current version of this app can be used here:
 
 http://diffpsy.shinyapps.io/shinyCI
 
-## ToDo
- 
-* as yet, shinyCI only works for T-values (hard-coded). It would be great if one could select between
-different scales (IQ, Z, etc.)
-
 
