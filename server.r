@@ -34,6 +34,26 @@ output$confPlot <- renderPlot({
     g <- g + geom_errorbarh(data = daf, aes(x = x, y = y, xmin = ci.min, xmax = ci.max), height = 0, size = 1) # confidence intervals
     g
     })
+
+output$interpreter <- renderText({
+  daf        <- data.frame(x = 50, y = 0.005)
+  daf$x      <- input$x
+  daf$rel    <- input$reli
+  daf$sdv    <- 10
+  daf$minval <- -3*daf$sdv
+  daf$maxval <-  3*daf$sdv
+  daf$se     <- daf$sdv*sqrt(1 - daf$rel)
+  daf$clevel <- input$conflevel
+  daf$crit.z <- abs(qnorm((1-daf$clevel) / 2))
+  daf$ci.min <- daf$x - daf$crit.z*daf$se
+  daf$ci.max <- daf$x + daf$crit.z*daf$se
   
+    if (daf$ci.min >= 40 & daf$ci.max <= 60) "durchschnittlich" else
+      if(daf$ci.max < 40) "unterdurchschnittlich" else
+        if(daf$ci.min > 60) "überdurchschnittlich" else
+          if (daf$ci.min < 40 & daf$ci.max >= 40 & daf$ci.max < 60) "unterdurchschnittlich bis durchschnittlich" else
+            if (daf$ci.min >= 40 & daf$ci.min <= 60 & daf$ci.max > 60) "durchschnittlich bis überdurchschnittlich" else
+              if (daf$ci.min < 40 & daf$ci.max > 60) "unterdurchschnittlich bis überdurchschnittlich"        
+}) # end renderText
     
-})
+})  # end shinyServer

@@ -33,7 +33,14 @@ shinyUI(pageWithSidebar(
                 , min = 0.5
                 , max = 1.00
                 , value = 0.95
-                , step = 0.01)      
+                , step = 0.01),
+    
+    #### interpretation of current CI
+    br(), br(),
+    
+    helpText(strong("Interpretation:", br())),
+    textOutput("interpreter")
+    
     ),
   
   #### Show the Plot ####
