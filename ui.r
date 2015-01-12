@@ -43,7 +43,11 @@ shinyUI(pageWithSidebar(
     br(),
     
     helpText(strong("Interpretation:", br())),
-    textOutput("interpreter")
+    textOutput("interpreter"),
+    
+    br(), 
+    
+    textOutput("probnote")
     ), # end sidebar 
   
   #### Show the Plot ####

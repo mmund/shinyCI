@@ -66,5 +66,34 @@ output$confPlot <- renderPlot({
     } else NULL # end showInterpreter = T  
 }) # end renderText
 
+
+#### probability Note ####
+output$probnote <- renderText({
+  #### create input dataframe ####
+  daf        <- data.frame(x = 50, y = 0.005)
+  daf$x      <- input$x
+  daf$rel    <- input$reli
+  daf$sdv    <- 10
+  daf$minval <- -3*daf$sdv
+  daf$maxval <-  3*daf$sdv
+  daf$se     <- daf$sdv*sqrt(1 - daf$rel)
+  daf$clevel <- input$conflevel
+  daf$crit.z <- abs(qnorm((1-daf$clevel) / 2))
+  daf$ci.min <- daf$x - daf$crit.z*daf$se
+  daf$ci.max <- daf$x + daf$crit.z*daf$se
   
+  #### calculate probability of value ####    
+  if (daf$x >= 80) {
+    z <- (daf$x - 50) / 10
+    paste0("Hinweis: Dieser Wert ist unwahrscheinlich (p = ", pnorm(1 - z), ")")
+    } else 
+      if (daf$x <= 20) {
+        z <- (daf$x - 50) / 10
+        paste0("Hinweis: Dieser Wert ist unwahrscheinlich (p = ", pnorm(1 - z, lower.tail = F), ")")
+      } else NULL # end showInterpreter = T  
+}) # end renderText
+
+
+
+
 })  # end shinyServer
