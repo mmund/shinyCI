@@ -22,7 +22,7 @@ shinyUI(pageWithSidebar(
                 , strong("Reliabilität:")
                 , min = 0
                 , max = 1
-                , value = 0.8
+                , value = 0.9
                 , step = 0.05),
     
     br(), br(),
